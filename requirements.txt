@@ -16,7 +16,7 @@ mccabe==0.6.1
 mysql-connector==2.2.9
 mysql-connector-python==8.0.23
 mysqlclient==2.0.3
-numpy==1.20.2
+numpy
 protobuf==3.15.6
 psycopg2==2.8.6
 pylint==2.7.2
