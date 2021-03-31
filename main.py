@@ -13,7 +13,7 @@ import sklearn
 app=Flask(__name__)
 model = pickle.load(open('Model.pickle', 'rb'))
 app.secret_key=os.urandom(24)
-app.permanent_session_lifetime = timedelta(minutes= 20)
+app.permanent_session_lifetime = timedelta(minutes= 2)
 
 conn = mysql.connector.connect(host="sql5.freesqldatabase.com", user='sql5402571', password='kpw3krNuBR', database='sql5402571', auth_plugin='mysql_native_password')
 
