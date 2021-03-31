@@ -99,7 +99,7 @@ def query():
 
     return "No query received", 200
 
-app.config["DOC_UPLOADS"] = "templates/static/Data"
+app.config["DOC_UPLOADS"] = "templates/static"
 app.config['ALLOWED_DOC_EXTENSIONS'] = ["TXT", " "]
 
 def allowed_doc(filename):
@@ -132,7 +132,7 @@ def file_upload():
             else:
                 filename = secure_filename(uploaded_file.filename)
 
-                uploaded_file.save(os.path.join(app.config["DOC_UPLOADS"], filename))
+                uploaded_file.save(os.path.join(app.config["DOC_UPLOADS"], "temp.txt"))
                 flash("file uploaded successfully", category="success")
 
             #print(uploaded_file)
@@ -167,7 +167,7 @@ def predict_file():
                     prediction = categories[pred[0]]        
     
     print("Files Deleting from delete_files")
-    files = glob.glob("templates/static/Data/*")
+    files = glob.glob("templates/static/temp.txt")
     for f in files:
         os.remove(f)
         
