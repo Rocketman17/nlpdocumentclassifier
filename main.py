@@ -122,6 +122,7 @@ def file_upload():
             uploaded_file = request.files["document"]
 
             if uploaded_file.filename == "":
+                flash("Document must have a filename", category="error")
                 print("Document must have a filename")
                 return redirect(request.url)
 
