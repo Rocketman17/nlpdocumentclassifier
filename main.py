@@ -173,7 +173,7 @@ def predict_file():
     #return redirect('/home')
     print("files Deleted from delete_files")
     
-    return render_template('home.html')
+    return render_template('home.html', Prediction= "Document belongs to {} category".format(prediction))
 
 
 if __name__=="__main__":
