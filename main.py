@@ -165,9 +165,8 @@ def predict_file():
                     #print(d)
                     pred = model.predict([d])
                     prediction = categories[pred[0]]
-                    flash("Document belongs to {} category".format(prediction), "info")
+                    return render_template('home.html',"Document belongs to {} category".format(prediction), "info")
     print("Files Deleting from delete_files")
-    #flash("Document belongs to {} category".format(prediction), "info")
     files = glob.glob("templates/static/temp.txt")
     for f in files:
         os.remove(f)
