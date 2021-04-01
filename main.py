@@ -13,7 +13,7 @@ import sklearn
 app=Flask(__name__)
 model = pickle.load(open('Model.pickle', 'rb'))
 app.secret_key=os.urandom(24)
-app.permanent_session_lifetime = timedelta(minutes= 2)
+app.permanent_session_lifetime = timedelta(minutes= 20)
 
 conn = mysql.connector.connect(host="sql5.freesqldatabase.com", user='sql5402571', password='kpw3krNuBR', database='sql5402571', auth_plugin='mysql_native_password')
 
@@ -99,7 +99,7 @@ def query():
 
     return "No query received", 200
 
-app.config["DOC_UPLOADS"] = "templates/static"
+app.config["DOC_UPLOADS"] = "templates/static/Data"
 app.config['ALLOWED_DOC_EXTENSIONS'] = ["TXT", " "]
 
 def allowed_doc(filename):
@@ -132,7 +132,6 @@ def file_upload():
 
             else:
                 filename = secure_filename(uploaded_file.filename)
-
                 uploaded_file.save(os.path.join(app.config["DOC_UPLOADS"], "temp.txt"))
                 flash("file uploaded successfully", category="success")
 
@@ -145,7 +144,6 @@ def file_upload():
 
 @app.route('/predict_file', methods=['POST'])
 def predict_file():
-
 
     path =  "templates/static/Data/"
     categories = ['alt.atheism','comp.graphics', 'comp.os.ms-windows.misc', 'comp.sys.ibm.pc.hardware',
@@ -168,16 +166,15 @@ def predict_file():
                     prediction = categories[pred[0]]        
                     flash("Document belongs to {} category".format(prediction))
     print("Files Deleting from delete_files")
-    files = glob.glob("templates/static/temp.txt")
-    
+    files = glob.glob("templates/static/Data/temp.txt")
     for f in files:
         os.remove(f)
         #return render_template('home.html')
     #return redirect('/home')
     print("files Deleted from delete_files")
-    return redirect ('/home')
-
+    
+    return redirect('/home')
 
 
 if __name__=="__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host = '0.0.0.0', debug=True)
