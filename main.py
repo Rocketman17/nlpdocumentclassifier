@@ -172,7 +172,6 @@ def predict_file():
     
     for f in files:
         os.remove(f)
-        flash("Document belongs to {} category".format(prediction))
         #return render_template('home.html')
     #return redirect('/home')
     print("files Deleted from delete_files")
