@@ -133,7 +133,7 @@ def file_upload():
             else:
                 filename = secure_filename(uploaded_file.filename)
                 uploaded_file.save(os.path.join(app.config["DOC_UPLOADS"], "temp.txt"))
-                flash("file uploaded successfully", category="success")
+                flash("file uploaded successfully, Press Predict", category="success")
 
             #print(uploaded_file)
 
@@ -164,9 +164,10 @@ def predict_file():
                     #print(d)
                     pred = model.predict([d])
                     prediction = categories[pred[0]]
-                    flash("Document belongs to {} category".format(prediction, "info"))
+                    flash("Document belongs to {} category".format(prediction), "info")
         return redirect(request.url)
     print("Files Deleting from delete_files")
+    flash("Test flash", "info")
     files = glob.glob("templates/static/temp.txt")
     for f in files:
         os.remove(f)
