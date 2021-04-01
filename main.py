@@ -99,7 +99,7 @@ def query():
 
     return "No query received", 200
 
-app.config["DOC_UPLOADS"] = "templates/static/Data"
+app.config["DOC_UPLOADS"] = "templates/static"
 app.config['ALLOWED_DOC_EXTENSIONS'] = ["TXT", " "]
 
 def allowed_doc(filename):
@@ -166,7 +166,7 @@ def predict_file():
                     prediction = categories[pred[0]]        
                     flash("Document belongs to {} category".format(prediction))
     print("Files Deleting from delete_files")
-    files = glob.glob("templates/static/Data/temp.txt")
+    files = glob.glob("templates/static/temp.txt")
     for f in files:
         os.remove(f)
         #return render_template('home.html')
