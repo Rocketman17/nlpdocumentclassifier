@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+       {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p> {{msg}} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,13 +25,7 @@
     <nav class="navbar">
         <a class="navbar-brand">Welcome to Document Classification</a>
     </nav>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for msg in messages %}
-                <p> {{msg}} </p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+ 
     <div class="flex-md-row">
         <h1 class="text-decoration-none display-4 mt-200" style="font-size: 80px">NLP Model for Doc Classification</h1>
         <form action="/file_upload" method="POST" , enctype="multipart/form-data">
@@ -46,7 +47,7 @@
         </form>
         
         <br>
-        {{ msg }}
+       
         <br>
         {{ Prediction }}
         <br>
