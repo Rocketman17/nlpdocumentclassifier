@@ -152,6 +152,7 @@ def predict_file():
  'sci.electronics', 'sci.med', 'sci.space', 'soc.religion.christian',
   'talk.politics.guns', 'talk.politics.mideast', 'talk.politics.misc', 'talk.religion.misc']
 
+    prediction = 0
     for path, dir, files in os.walk(path):
         is_empty = os.listdir(path)
         if len(is_empty)==0:
