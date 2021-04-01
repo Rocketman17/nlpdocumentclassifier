@@ -175,9 +175,6 @@ def predict_file():
         #return render_template('home.html')
     #return redirect('/home')
     print("files Deleted from delete_files")
-    
-    return redirect('/home')
-
 
 
 
