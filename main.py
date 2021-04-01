@@ -164,8 +164,8 @@ def predict_file():
                     #print(d)
                     pred = model.predict([d])
                     prediction = categories[pred[0]]
-                    flash("Document belongs to {} category".format(prediction, "info"))
-                    #return render_template('home.html', Prediction = "Document belongs to {} category".format(prediction))
+                    #flash("Document belongs to {} category".format(prediction, "info"))
+                    return render_template('home.html', "Document belongs to {} category".format(prediction))
     print("Files Deleting from delete_files")
     files = glob.glob("templates/static/temp.txt")
     for f in files:
@@ -174,7 +174,7 @@ def predict_file():
     #return redirect('/home')
     print("files Deleted from delete_files")
     
-    return render_template('home.html')
+    return render_template('home.html', "Document belongs to {} category".format(prediction))
 
 
 if __name__=="__main__":
