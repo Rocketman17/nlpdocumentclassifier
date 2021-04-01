@@ -171,8 +171,8 @@ def predict_file():
     files = glob.glob("templates/static/temp.txt")
     for f in files:
         os.remove(f)
-        
-        return render_template('home.html', prediction = "Document belongs to {} category".format(prediction) )
+        flash("Document belongs to {} category".format(prediction))
+        return render_template('home.html')
     return redirect('/home')
     print("files Deleted from delete_files")
     
