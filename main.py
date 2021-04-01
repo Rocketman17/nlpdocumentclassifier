@@ -173,7 +173,7 @@ def predict_file():
     #return redirect('/home')
     print("files Deleted from delete_files")
     
-    return redirect('/home')
+    return render_template('home.html')
 
 
 if __name__=="__main__":
