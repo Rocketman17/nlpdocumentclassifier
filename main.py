@@ -15,7 +15,7 @@ model = pickle.load(open('Model.pickle', 'rb'))
 app.secret_key=os.urandom(24)
 app.permanent_session_lifetime = timedelta(minutes= 20)
 
-conn = mysql.connector.connect(host="sql5.freesqldatabase.com", user='sql5402571', password='kpw3krNuBR', database='sql5402571', auth_plugin='mysql_native_password')
+conn = mysql.connector.connect(host="sql5..com", user='', password='', database='', auth_plugin='mysql_native_password')
 
 cursor=conn.cursor(buffered=True)
 
